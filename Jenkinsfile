@@ -47,12 +47,6 @@ pipeline {
 		sh script: '/opt/apache-maven-3.8.1/bin/mvn package'	
            }		
         }
-	    stage('deploy') {
-	   steps {
-                echo 'deploy......'
-		sh script: 'cp /root/agent01/workspace/package/target/sampleapp.war /opt/tomcat/webapps/'	
-		sh script: 'service tomcat restart'
-           }		
-        }
+	    
     }
 }
