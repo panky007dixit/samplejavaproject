@@ -8,7 +8,7 @@ pipeline {
 		sh script: '/opt/apache-maven-3.8.1/bin/mvn compile'
            }
         }
-        stage('codereview-pmd') {
+        stage('codereview') {
 	   steps {
                 echo 'codereview..'
 		sh script: '/opt/apache-maven-3.8.1/bin/mvn -P metrics pmd:pmd'
@@ -19,7 +19,7 @@ pipeline {
                }
            }		
         }
-        stage('unit-test') {
+        stage('unittest') {
 	   steps {
                 echo 'unittest..'
 	        sh script: '/opt/apache-maven-3.8.1/bin/mvn test'
@@ -30,7 +30,7 @@ pipeline {
                }
            }			
         }
-        stage('codecoverate') {
+        stage('codecoverage') {
 	   steps {
                 echo 'codecoverage..'
 		sh script: '/opt/apache-maven-3.8.1/bin/mvn cobertura:cobertura -Dcobertura.report.format=xml'
